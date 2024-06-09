@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .nav-item {
+            transition: transform 0.3s ease;
+        }
+        .nav-item.open {
+            transform: translateX(0%);
+        }
+        .nav-item.closed {
+            transform: translateX(-100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">
+                <img src="https://th.bing.com/th/id/R.33a528593b5fb55ab17cd18c0b3d3cf9?rik=xdBHkHTyEiDucA&pid=ImgRaw&r=0" alt="" width="38px" height="38px">
+ 
+            </h1>
+            <div class="sm:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="hidden sm:flex space-x-4">
+                <a href="home.html" class="hover:text-gray-400">Home</a>
+                <a href="service.html" class="hover:text-gray-400">Services</a>
+                <a href="#" class="hover:text-gray-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="nav-item closed bg-gray-800 text-white fixed top-0 left-0 h-full w-3/4 max-w-sm z-10 pt-20">
+        <div class="p-4">
+            <a href="#" class="block py-2 hover:text-gray-400">Home</a>
+            <a href="#" class="block py-2 hover:text-gray-400">Services</a>
+            <a href="#" class="block py-2 hover:text-gray-400">Contact</a>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+    </script>
+    <script src="index.js"></script>
+</body>
+</html>
